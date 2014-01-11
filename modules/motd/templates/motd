@@ -1,0 +1,7 @@
+------------------------------------------------------------------------------
+<%= fqdn %> :: <%= ipaddress %>
+<%= "#{operatingsystem.downcase} #{operatingsystemrelease.strip} (#{architecture})" %> :: <%= "#{kernel.downcase} #{kernelrelease}" %>
+
+<%= " (#{vr_server_role.upcase})" if has_variable?("vr_server_role") %>
+<%= vr_build_notes.strip.chomp if has_variable?("vr_build_notes") %>
+------------------------------------------------------------------------------
