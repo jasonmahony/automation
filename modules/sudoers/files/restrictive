@@ -17,7 +17,7 @@ Host_Alias	HOSTTYPE2 = host*, vm-host*
 Cmnd_Alias DELEGATING = /bin/chown, /bin/chmod, /bin/chgrp 
 Cmnd_Alias DRIVERS = /sbin/modprobe
 Cmnd_Alias NETWORKING = /sbin/route, /sbin/ifconfig, /bin/ping, /usr/bin/net, /sbin/iptables, /usr/bin/rfcomm, /usr/bin/wvdial, /sbin/iwconfig, /sbin/mii-tool, /sbin/ethtool, /usr/sbin/tcpdump, /bin/netstat
-Cmnd_Alias SOFTWARE = /bin/rpm, /usr/bin/up2date, /usr/bin/yum, /usr/bin/createrepo, /usr/local/vr/scripts/vr_yum_repo_sync, /usr/local/vr/scripts/yum.reposync
+Cmnd_Alias SOFTWARE = /bin/rpm, /usr/bin/up2date, /usr/bin/yum, /usr/bin/createrepo
 Cmnd_Alias SERVICES = /sbin/service, /sbin/chkconfig
 Cmnd_Alias LOCATE = /usr/sbin/updatedb
 Cmnd_Alias STORAGE = /bin/mount, /bin/umount
@@ -65,12 +65,12 @@ appuser          ALL=(root) NOPASSWD: /sbin/fuser
 %ldap-group1      ALL=(ALL) ALL
 
 # ldap-based groups for the powerful and the less powerful
-%ldap-group2         ALL=NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, VR, LOGUTIL, RUBYGEM
+%ldap-group2         ALL=NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, LOGUTIL, RUBYGEM
 %ldap-group3         ALL=SOFTWARE
 
 ### !!!
 ### LEGACY
 ### !!!
 
-user3    MESSAGESYSTEMS=(root) NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, VR, LOGUTIL, MSLOGVIEW, RUBYGEM
+user3    MESSAGESYSTEMS=(root) NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, LOGUTIL, MSLOGVIEW, RUBYGEM
 user4    MESSAGESYSTEMS=(root) MSLOGVIEW
