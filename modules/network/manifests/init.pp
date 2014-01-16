@@ -3,6 +3,7 @@ class network {
   case $network_eth0 {
     'w.x.y.z': { $gateway = "w.x.y.a" }  
     'a.b.c.d': { $gateway = "a.b.c.z" }
+    default: { $gateway = "x.x.x.x" }
   }
  
   file {'/etc/sysconfig/network-scripts/ifcfg-eth0': 
