@@ -1,6 +1,4 @@
 class groups {
-       Group { ensure => present, }
-        group {'jason':
-          gid => '777'
-        }
+  Group { ensure => present, }
+  group {'jason': gid => '777' }
 }

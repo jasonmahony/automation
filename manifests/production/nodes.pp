@@ -1,8 +1,15 @@
 node default {
-  include motd, snmp, ldapclient, sudoers, ssh, users, groups, network
 }
 
-# this is a test node.
-node /^prd-app\d{2}.example.com$/ {
-  include nginx, deployenv
+node base {
+  include motd, ntp, snmp, ldapclient, sudoers, ssh, users, groups, network
+  $ruby_version = "2.0.0-p353"  
+}
+
+node /^app\d{2}.example.com$/ inherits base {
+  include nginx
+}
+
+node /^pg\{2}.example.com$/ inherits base {
+  include postgres
 }
