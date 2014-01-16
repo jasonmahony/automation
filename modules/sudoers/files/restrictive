@@ -67,10 +67,3 @@ appuser          ALL=(root) NOPASSWD: /sbin/fuser
 # ldap-based groups for the powerful and the less powerful
 %ldap-group2         ALL=NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, LOGUTIL, RUBYGEM
 %ldap-group3         ALL=SOFTWARE
-
-### !!!
-### LEGACY
-### !!!
-
-user3    MESSAGESYSTEMS=(root) NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, LOGUTIL, MSLOGVIEW, RUBYGEM
-user4    MESSAGESYSTEMS=(root) MSLOGVIEW

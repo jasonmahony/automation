@@ -1,8 +1,8 @@
 ==========
-automation
+Sample Puppet 
 ==========
 
-Automation is Puppet for CentOS 6.x configuration.
+Sample Puppet modules.
 
 ----------
 Jason Mahony
