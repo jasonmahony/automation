@@ -13,8 +13,8 @@ events {
 
 http {
 
-    passenger_root /usr/local/rvm/gems/ruby-2.0.0-p353/gems/passenger-enterprise-server-4.0.26;
-    passenger_ruby /usr/local/rvm/wrappers/ruby-2.0.0-p353/ruby;
+    passenger_root /usr/local/rvm/gems/ruby-$ruby-version/gems/passenger-enterprise-server-4.0.26;
+    passenger_ruby /usr/local/rvm/wrappers/ruby-$ruby-version/ruby;
 
     passenger_max_pool_size 16;
     passenger_max_requests 10;

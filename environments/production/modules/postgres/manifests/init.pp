@@ -2,7 +2,7 @@ class postgres {
 
   File { owner => root, group => root, mode => 0644 }
 
-  $source = "puppet:///modules/postgres"
+  $source = "puppet:///environments/production/postgres"
 
   user {'postgres':
     comment => 'PostgreSQL Server',
@@ -31,7 +31,7 @@ class postgres {
   }   
 
 # set up pgsql directories (puppet won't create intermediate dirs)
-  file { '/db': mode => 0755, ensure => directory	}
+  file { '/db': mode => 0755, ensure => directory }
   file { '/db/pgsql': mode => 0755, ensure => directory }
   file { '/db/pgsql/data': mode => 0700, ensure => directory }
   file { '/db/log': mode => 755, ensure => directory, owner => postgres, group => postgres }
