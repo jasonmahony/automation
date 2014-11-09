@@ -3,7 +3,7 @@ node default {
 }
 
 node base {
-  include motd, ntp, snmp, ldapclient, sudoers, ssh, users, groups, network
+  include motd
 }
 
 node "dev-front.example.com" inherits base {
@@ -14,6 +14,5 @@ node "dev-back.example.com" inherits base {
   include postgres
 }
 
-node "centos.localdomain" {
-  include motd
+node "centos.localdomain" inherits base {
 }
