@@ -14,6 +14,6 @@ node "dev-back.example.com" inherits base {
   include postgres
 }
 
-node "10.211.55.10" {
+node "centos.localdomain" {
   include motd
 }
