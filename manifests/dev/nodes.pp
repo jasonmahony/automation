@@ -13,3 +13,7 @@ node "dev-front.example.com" inherits base {
 node "dev-back.example.com" inherits base {
   include postgres
 }
+
+node "10.211.55.10" {
+  include motd
+}
