@@ -1,5 +1,4 @@
 class apache (
-
   ### install.pp
   $package = "httpd",
   
@@ -11,10 +10,7 @@ class apache (
   
   ### service.pp
   $service = "httpd"
-
-)
-
-{
+) {
 
     anchor { "apache::begin": } ->
     class { "apache::install": } ->
