@@ -1,5 +1,5 @@
 define apache::install {
   
-    package { $::apache::package: ensure => installed }
+    package { "$::apache::package": ensure => installed }
 
 }
