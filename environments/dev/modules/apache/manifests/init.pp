@@ -1,16 +1,16 @@
 class apache (
   ### install.pp
-  $package = "httpd",
+  $package = $apache::params::package,
   
   ## config.pp
-  $apache_conf = "/etc/httpd/httpd.conf",
-  $port = "80",
-  $doc_root = "/var/www/example",
-  $server_name = "www.example.com",
+  $port = $apache::params::port,
+  $doc_root = $apache::params::doc_root,
+  $server_name = $apache::params::server_name,
   
   ### service.pp
-  $service = "httpd"
-) {
+  $service = $apache::params::service,
+) 
+inherits apache::params {
 
     anchor { "apache::begin": } ->
     class { "apache::install": } ->
