@@ -1,4 +1,4 @@
-define apache::config {
+class apache::config {
 
   file { '/etc/httpd/httpd.conf': 
     ensure => present,

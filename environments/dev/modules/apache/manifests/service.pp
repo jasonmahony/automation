@@ -1,4 +1,4 @@
-define apache::service {
+class apache::service {
 
   service {"$::apache::service":
     ensure => running,
