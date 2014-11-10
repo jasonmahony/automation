@@ -11,4 +11,3 @@ class apache::params {
    ### service.pp
    $service = "httpd" 
 }
-
