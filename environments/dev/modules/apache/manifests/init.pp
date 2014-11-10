@@ -12,14 +12,14 @@ class apache (
 ) 
 inherits apache::params {
 
-    anchor { "apache::begin": }
+    anchor { 'apache::begin': }
     ->
-    class { "apache::install": }
+    class { 'apache::install': }
     ->
-    class { "apache::config": }
+    class { 'apache::config': }
     ->
-    class { "apache::service": }
+    class { 'apache::service': }
     ->
-    anchor { "apache::end": }
+    anchor { 'apache::end': }
 
 }
