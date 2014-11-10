@@ -3,7 +3,7 @@ node default {
 }
 
 node base {
-  include motd
+  include motd, users, groups
 }
 
 node "dev-front.example.com" inherits base {
@@ -15,5 +15,5 @@ node "dev-back.example.com" inherits base {
 }
 
 node "centos.localdomain" inherits base {
-  include groups, apache
+  include apache
 }
