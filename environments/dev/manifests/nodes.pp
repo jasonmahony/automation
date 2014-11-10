@@ -15,5 +15,5 @@ node "dev-back.example.com" inherits base {
 }
 
 node "centos.localdomain" inherits base {
-  include apache
+  include groups
 }

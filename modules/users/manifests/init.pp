@@ -6,9 +6,7 @@ class users {
 
 ## Resource defaults for user accounts
 
-  User { ensure => present,
-    shell => '/bin/bash',
-  }    
+  User { ensure => present, shell => '/bin/bash' }    
 
   
   user { 'puppet':
@@ -17,11 +15,12 @@ class users {
     shell => '/sbin/nologin',
     uid     => '52',
     gid     => '52'
-    }
+  }
+  
   user { 'jason':
     comment => 'System Operator',
     uid     => '777',
     gid     => '777',
     groups  => ['jason']
-    }       
+  }       
 }
