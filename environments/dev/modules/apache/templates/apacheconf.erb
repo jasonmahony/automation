@@ -1,20 +1,20 @@
 # Ensure that Apache listens on port specified port
-Listen <%= port %>
+Listen <%= @port %>
 
 # Listen for virtual host requests on all IP addresses
-NameVirtualHost *:<%= port %>
+NameVirtualHost *:<%= @port %>
 
-<VirtualHost *:<%= port %>>
-DocumentRoot <%= doc_root %>
-ServerName <%= server_name %>
+<VirtualHost *:<%= @port %>>
+DocumentRoot <%= @doc_root %>
+ServerName <%= @server_name %>
 
 # Other directives here
 
 </VirtualHost>
 
-<VirtualHost *:<%= port %>>
-DocumentRoot <%= doc_root %>
-ServerName <%= server_name %>
+<VirtualHost *:<%= @port %>>
+DocumentRoot <%= @doc_root %>
+ServerName <%= @server_name %>
 
 # Other directives here
 
