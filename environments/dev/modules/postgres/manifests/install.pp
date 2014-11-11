@@ -16,9 +16,7 @@ class postgres::install {
 # 
     exec { "delete_default_configs":
 		command => "/bin/rm -f /db/pgsql/data/{postgresql.conf,pg_hba.conf}",
-		unless  => $pgsql_version
-#		
-#   Another potential problem requiring multiple packages
+		unless  => $pgsql_version,
 		require => Package['$::postgres::packages']
     }
 
