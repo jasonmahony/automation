@@ -1,4 +1,6 @@
 class postgres::install {
+	include postgres::params
+	$postgres_version = $postgres::params::postgres_version
 	
 	File { ensure => directory, owner => root, group => root, mode => 0755 }
   Package { ensure => installed, allow_virtual => false }
@@ -12,11 +14,12 @@ class postgres::install {
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
 
 	unless $pgsql_version { notify {'init_message': message => 'postgres database not yet initialized; not placing config files.' } }
-  package { '$::postgres::postgres_version': }
-  package { '$::postgres::postgres_version-server': }
-  package { '$::postgres::postgres_version-contrib': }
-  package { '$::postgres::postgres_version-lib': }
-  package { '$::postgres::postgres_version-dev': }
+ 
+  package { '$postgres_version': }
+#  package { '$::postgres::postgres_version-server': }
+#  package { '$::postgres::postgres_version-contrib': }
+#  package { '$::postgres::postgres_version-lib': }
+#  package { '$::postgres::postgres_version-dev': }
 
 
   unless $pgsql_version {
