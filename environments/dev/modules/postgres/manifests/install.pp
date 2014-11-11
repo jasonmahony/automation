@@ -18,5 +18,6 @@ class postgres::install {
 	file { '/db/pgsql/data': mode => 0700, owner => postgres, group => postgres, require => File['/db/pgsql'] }
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
-  file { "/etc/sysconfig/pgsql/$postgres_version": mode => 0644, source => "$source/conf", require => File['/db'] }
+  file { "/etc/sysconfig/pgsql/$postgres_version": ensure => present, mode => 0644, source => "$source/conf", require => File['/db'] }
+  file { "/etc/init.d/$postgres_version": ensure => present, source => "$source/postgres-init"}
 }
