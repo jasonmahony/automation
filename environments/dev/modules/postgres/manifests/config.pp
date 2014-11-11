@@ -11,8 +11,8 @@ class postgres::config {
     file { "/etc/init.d/$::postgres::service":
 	  owner   => root,
 	  group   => root,
-      mode    => 0755,
-      source  => "$source/postgres-init"       
+    mode    => 0755,
+    source  => "$source/postgres-init"       
     }
 	
    # postgres server config file
