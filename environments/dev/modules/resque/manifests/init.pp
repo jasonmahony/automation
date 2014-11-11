@@ -1,7 +1,4 @@
-class resque (
-  $resque_queue = $resque::worker::resque_queue
-)
-{
+class resque {
 
 #  $rails_env = "dev"
 
