@@ -3,9 +3,8 @@ class postgres::config {
 	File { ensure => present, owner => postgres, group => postgres, mode => 0600 }
 	$source = "puppet:///modules/postgres"
 
-    exec { "initialize_database":
-		command => "/sbin/service $::postgres::service initdb -X /db/log/pg_xlog",
-		unless  => $pgsql_version
+    unless  $pgsql_version {
+      exec { "initialize_database": command => "/sbin/service $::postgres::service initdb -X /db/log/pg_xlog" }
     }
 
     file { "/etc/init.d/$::postgres::service":
