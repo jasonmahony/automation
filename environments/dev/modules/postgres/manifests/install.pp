@@ -1,7 +1,7 @@
 class postgres::install {
 	
 	File { ensure => directory, owner => root, group => root, mode => 0755 }
-  Package { ensure => installed, allow_virtual => false }
+  Package { ensure => installed, allow_virtual => true }
   $source = "puppet:///modules/postgres"
 	
 	# set up pgsql directories (puppet won't create intermediate dirs)
