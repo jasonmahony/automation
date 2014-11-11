@@ -1,7 +1,7 @@
 class postgres (
 
 	  ### install
-	  $packages = $postgres::params::packages,
+	  $postgres_version = $postgres::params::postgres_version,
 
     ### config
     $lisen_address = $postgres::params::listen_address,
