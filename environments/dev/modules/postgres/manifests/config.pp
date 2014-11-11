@@ -16,7 +16,7 @@ class postgres::config {
     }
 	
    # postgres server config file
-    file { "/db/pgsql/data/postgresql.conf": content => template('postgres/postgreconf.erb') }
+    file { "/db/pgsql/data/postgresql.conf": content => template('postgres/postgresconf.erb') }
 		
     # postgres client config file
     file { "/db/pgsql/data/pg_hba.conf": source => "$source/pg_hba.conf" }   
