@@ -6,11 +6,11 @@ class postgres::install {
   Package { ensure => installed, allow_virtual => true }
   $source = "puppet:///modules/postgres"
 	
-	package { "$postgres_version": before => File['/db']}
-  package { '$postgres_version-server': }
-  package { '$postgres_version-lib': }
-  package { '$postgres_version-contrib': }
-  package { '$postgres_version-devel': }
+	package { "$postgres_version": }
+  package { "$postgres_version-server": before => File['/db'] }
+  package { "$postgres_version-lib": }
+  package { "$postgres_version-contrib": }
+  package { "$postgres_version-devel": }
 	
 	# set up pgsql directories (puppet won't create intermediate dirs)
 	file { '/db': }
@@ -18,5 +18,5 @@ class postgres::install {
 	file { '/db/pgsql/data': mode => 0700, owner => postgres, group => postgres, require => File['/db/pgsql'] }
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
-  file { "/etc/sysconfig/pgsql/$postgres_version": mode => 0644, source => "$source/conf" }
+  file { "/etc/sysconfig/pgsql/$postgres_version": mode => 0644, source => "$source/conf", require => File['/db'] }
 }
