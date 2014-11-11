@@ -11,7 +11,7 @@ class postgres::install {
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
 
-  package { '$::postgres::postgres_version': }
+  package { "$::postgres::postgres_version": }
 #  package { '$postgres_version-server': }
 #  package { '$postgres_version-lib': }
 #  package { '$postgres_version-contrib': }
