@@ -17,7 +17,7 @@ class postgres::install {
   unless $pgsql_version {
     exec { "delete_default_configs":
 		  command => "/bin/rm -f /db/pgsql/data/{postgresql.conf,pg_hba.conf}",
-		  require => Package['$::postgres::packages']
+		  require => Package["$::postgres::packages"]
     }
   }
     file { "/etc/sysconfig/pgsql/$::postgres::service": mode => 0644, source => "$source/conf" }
