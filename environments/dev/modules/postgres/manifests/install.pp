@@ -8,7 +8,7 @@ class postgres::install {
 	
 	package { "$postgres_version": }
   package { "$postgres_version-server": before => File['/db'] }
-  package { "$postgres_version-lib": }
+  package { "$postgres_version-libs": }
   package { "$postgres_version-contrib": }
   package { "$postgres_version-devel": }
 	
