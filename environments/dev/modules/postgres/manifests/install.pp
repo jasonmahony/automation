@@ -9,7 +9,7 @@ class postgres::install {
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
 	
-	notify { "postgres database not yet initialized; not placing config files.": unless => $pgsql_version }
+	notify { 'init_message': message => "postgres database not yet initialized; not placing config files.", unless => $pgsql_version }
   package { "$::postgres::packages": ensure => installed, allow_virtual => true }
 #
 #	package { "$::postgres::packages": ensure => installed, allow_virtual => false }
