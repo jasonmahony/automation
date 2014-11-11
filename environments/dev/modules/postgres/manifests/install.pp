@@ -13,22 +13,11 @@ class postgres::install {
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
 
-	unless $pgsql_version { 
-	  notify { 'postgres database not yet initialized; not placing config files.': }
-    exec { "initialize_database": 
-      command => "/sbin/service $::postgres::service initdb -X /db/log/pg_xlog",
-      require => Exec["delete_default_configs"]
-    }
-    exec { "delete_default_configs":
-		  command => "/bin/rm -f /db/pgsql/data/{postgresql.conf,pg_hba.conf}",
-		  require => Package["${postgres_version}-server"]
-    }
-  }
   package { '$postgres_version': }
   package { '$postgres_version-server': }
   package { '$postgres_version-lib': }
   package { '$postgres_version-contrib': }
   package { '$postgres_version-devel': }
 
-  file { "/etc/sysconfig/pgsql/$::postgres::service": mode => 0644, source => "$source/conf" }
+  file { "/etc/sysconfig/pgsql/$postgres_version": mode => 0644, source => "$source/conf" }
 }

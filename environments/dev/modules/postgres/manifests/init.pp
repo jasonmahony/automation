@@ -16,6 +16,7 @@ inherits postgres::params {
 
     anchor { "postgres::begin": } ->
     class { "postgres::install": } ->
+    class { "postgres::initialize": } ->
     class { "postgres::config": } ->
     anchor { "postgres::end": }
 
