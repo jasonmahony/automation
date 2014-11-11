@@ -12,17 +12,11 @@ class postgres::install {
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
 
 	unless $pgsql_version { notify {'init_message': message => 'postgres database not yet initialized; not placing config files.' } }
-  package { "${postgres_version}": }
-  package { "${postgres_version}-server": }
-  package { "${postgres_version}-contrib": }
-  package { "${postgres_version}-lib": }
-  package { "${postgres_version}-dev": }
-
-#  package { '$::postgres::postgres_version': }
-#  package { '$::postgres::postgres_version-server': }
-#  package { '$::postgres::postgres_version-contrib': }
-#  package { '$::postgres::postgres_version-lib': }
-#  package { '$::postgres::postgres_version-dev': }
+  package { '$::postgres::postgres_version': }
+  package { '$::postgres::postgres_version-server': }
+  package { '$::postgres::postgres_version-contrib': }
+  package { '$::postgres::postgres_version-lib': }
+  package { '$::postgres::postgres_version-dev': }
 
 
   unless $pgsql_version {
