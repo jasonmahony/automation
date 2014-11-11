@@ -12,7 +12,7 @@ class postgres (
     $service = $postgres::params::service,
 
 ) 
-inherits apache::params {
+inherits postgres::params {
 
     anchor { "postgres::begin": } ->
     class { "postgres::install": } ->
