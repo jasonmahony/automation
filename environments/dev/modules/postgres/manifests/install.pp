@@ -1,7 +1,7 @@
 class postgres::install {
 	include postgres::params
 	$postgres_version = $postgres::params::postgres_version
-	$postgres_service = $postgres::params::postgres_service
+	$postgres_service = $postgres::params::service
 	$postgres_conf = $postgres::params::postgres_conf
   $postgres_init = $postgres::params::postgres_init
 	
