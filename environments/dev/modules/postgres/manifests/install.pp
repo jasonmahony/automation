@@ -2,6 +2,8 @@ class postgres::install {
 	include postgres::params
 	$postgres_version = $postgres::params::postgres_version
 	$postgres_service = $postgres::params::postgres_service
+	$postgres_conf = $postgres::params::postgres_conf
+  $postgres_init = $postgres::params::postgres_init
 	
 	File { ensure => directory, owner => root, group => root, mode => 0755 }
   Package { ensure => installed, allow_virtual => true }
@@ -19,6 +21,6 @@ class postgres::install {
 	file { '/db/pgsql/data': mode => 0700, owner => postgres, group => postgres, require => File['/db/pgsql'] }
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
-  file { '/etc/sysconfig/pgsql/$postgres_service': ensure => present, mode => 0644, source => "$source/conf", require => File["/db"] }
-  file { '/etc/init.d/$postgres_service': ensure => present, source => "$source/postgres_init", require => File["/db"] }
+  file { "$postgres_conf": ensure => present, mode => 0644, source => "$source/conf", require => File["/db"] }
+  file { "$postgres_init": ensure => present, source => "$source/postgres_init", require => File["/db"] }
 }
