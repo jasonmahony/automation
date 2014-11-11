@@ -20,5 +20,5 @@ class postgres::install {
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
   file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
   file { "/etc/sysconfig/pgsql/$postgres_service": ensure => present, mode => 0644, source => "$source/conf", require => File["/db"] }
-  file { "/etc/init.d/$postgres_service": ensure => present, source => "$source/postgres_init", require => File ["/db"] }
+  file { "/etc/init.d/$postgres_service": ensure => present, source => "$source/postgres_init", require => File["/db"] }
 }
