@@ -4,7 +4,7 @@ class postgres::config {
 	$source = "puppet:///modules/postgres"
 
     exec { "initialize_database":
-		command => "/sbin/service $service initdb -X /db/log/pg_xlog",
+		command => "/sbin/service $::postgres::service initdb -X /db/log/pg_xlog",
 		unless  => $pgsql_version
     }
 
