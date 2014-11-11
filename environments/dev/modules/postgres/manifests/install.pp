@@ -1,6 +1,6 @@
 class postgres::install {
 	include postgres::params
-	$postgres_version = $postgres::params::postgres_version
+	$postgres_version = $::postgres::params::postgres_version
 	
 	File { ensure => directory, owner => root, group => root, mode => 0755 }
   Package { ensure => installed, allow_virtual => false }
