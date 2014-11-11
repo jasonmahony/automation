@@ -14,9 +14,9 @@ class postgres (
   ) 
   inherits apache::params {
 
-      anchor { "apache::begin": } ->
-      class { "apache::install": } ->
-      class { "apache::config": } ->
-      anchor { "apache::end": }
+      anchor { "postgres::begin": } ->
+      class { "postgres::install": } ->
+      class { "postgres::config": } ->
+      anchor { "postgres::end": }
 
   }
