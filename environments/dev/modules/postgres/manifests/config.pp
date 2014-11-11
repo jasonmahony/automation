@@ -15,13 +15,6 @@ class postgres::config {
       source  => "$source/postgres-init"       
     }
 	
-    file { "/etc/sysconfig/pgsql/$::postgres::service":
-	  owner   => root,
-	  group   => root,
-      mode    => 0644,
-      source  => "$source/conf"       
-    }
-	
    # postgres server config file
     file { "/db/pgsql/data/postgresql.conf": content => template('postgres/postgreconf.erb') }
 		
