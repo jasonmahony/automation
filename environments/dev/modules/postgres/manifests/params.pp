@@ -1,7 +1,7 @@
 class postgres::params {
   
    ## install.pp
-   $packages = ["postgresql93", "postgresql93-server", "postgresql93-contrib", "postgresql93-devl", "postgresql93-libs"] 
+   $postgres_version = "postgresql93" 
 
    ## config.pp
    $lisen_address = "localhost"

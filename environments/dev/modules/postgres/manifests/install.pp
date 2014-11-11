@@ -18,6 +18,13 @@ class postgres::install {
   package { "${postgres_version}-lib": }
   package { "${postgres_version}-dev": }
 
+#  package { '$::postgres::postgres_version': }
+#  package { '$::postgres::postgres_version-server': }
+#  package { '$::postgres::postgres_version-contrib': }
+#  package { '$::postgres::postgres_version-lib': }
+#  package { '$::postgres::postgres_version-dev': }
+
+
   unless $pgsql_version {
     exec { "delete_default_configs":
 		  command => "/bin/rm -f /db/pgsql/data/{postgresql.conf,pg_hba.conf}",
