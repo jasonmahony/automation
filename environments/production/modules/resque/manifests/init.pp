@@ -1,4 +1,4 @@
-class resque inherits resque::worker {
+class resque {
 
   $rails_env = "production"
 
