@@ -4,12 +4,12 @@ class postgres::install {
 	$postgres_conf = $postgres::params::postgres_conf
   $postgres_init = $postgres::params::postgres_init
 	
-	File { ensure => directory, owner => root, group => root, mode => 0755 }
+	File { ensure => directory, owner => root, group => root, mode => 0755, require => Package["$postgres_version"] }
   Package { ensure => installed, allow_virtual => true }
   $source = "puppet:///modules/postgres"
 	
 	package { "$postgres_version": }
-  package { "$postgres_version-server": before => File['/db'] }
+  package { "$postgres_version-server": }
   package { "$postgres_version-libs": }
   package { "$postgres_version-contrib": }
   package { "$postgres_version-devel": }
