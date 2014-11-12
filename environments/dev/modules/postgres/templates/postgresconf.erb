@@ -16,6 +16,12 @@ lc_numeric = 'en_US'								# locale for number formatting
 lc_time = 'en_US'									# locale for time formatting
 default_text_search_config = 'pg_catalog.english'
 
+checkpoint_completion_target = 0.5 
+checkpoint_timeout = 5min           # To spread out Checkpointing 
+random_page_cost = 2.0             # Since we are more like RAID 5
+
+checkpoint_segments = 64 		# in logfile segments, min 1, 16MB each
+
 # Replication Settings
 wal_level = <%= @wal_level %>						# minimal, archive, or hot_standby
 wal_buffers = 16MB

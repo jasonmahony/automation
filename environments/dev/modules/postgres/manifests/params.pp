@@ -6,7 +6,7 @@ class postgres::params {
    $postgres_init = "/etc/init.d/postgresql-9.3"
 
    ## config.pp
-   $lisen_address = "localhost"
+   $listen_address = "localhost"
    $max_connections = "80"
    $wal_level = "minimal"
    $archive_mode = "off"
