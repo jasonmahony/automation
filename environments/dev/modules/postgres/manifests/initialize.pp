@@ -7,7 +7,7 @@ class postgres::initialize {
     exec { 'initialize_database': command => "/sbin/service ${service} initdb -X /db/log/pg_xlog" }
     exec { "delete_default_configs":
       command => "/bin/rm -f /db/pgsql/data/{postgresql.conf,pg_hba.conf}",
-      before => 'initialize_database' 
+      before => Exec['initialize_database'] 
     }
   }
 }
