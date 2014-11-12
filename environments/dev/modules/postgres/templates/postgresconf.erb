@@ -35,7 +35,7 @@ checkpoint_completion_target = 0.5
 checkpoint_timeout = 5min           # To spread out Checkpointing 
 random_page_cost = 2.0             # Since we are more like RAID 5
 
-checkpoint_segments = 64 		# in logfile segments, min 1, 16MB each
+checkpoint_segments = 8 		# in logfile segments, min 1, 16MB each
 
 autovacuum_naptime = 2min               # time between autovacuum runs
 autovacuum_analyze_threshold = 50      # min number of row updates before analyze
