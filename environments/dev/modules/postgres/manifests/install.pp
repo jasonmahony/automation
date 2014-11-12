@@ -19,7 +19,7 @@ class postgres::install {
 	file { '/db/pgsql': require => File['/db'] }
 	file { '/db/pgsql/data': mode => 0700, owner => postgres, group => postgres, require => File['/db/pgsql'] }
 	file { '/db/log': owner => postgres, group => postgres, require => File['/db'] }
-  file { '/db/log/pg_xlog': owner => postgres, group => postgres, require => File['/db/log'] }
+  file { '/db/log/pg_xlog': owner => postgres, group => postgres, mode => 700, require => File['/db/log'] }
   file { "$postgres_conf": ensure => present, mode => 0644, source => "$source/conf" }
   file { "$postgres_init": ensure => present, source => "$source/postgres_init" }
 }
