@@ -19,7 +19,7 @@ class users {
   
   user { 'jason':
     comment => 'System Operator',
-    home    => '/home/jason'
+    home    => '/home/jason',
     uid     => '777',
     gid     => '777',
     groups  => ['jason']
