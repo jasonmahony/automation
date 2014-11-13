@@ -1,4 +1,7 @@
 class ssh {
+  
+  $access_level = "permissive"
+  
   package { "openssh-clients": ensure => latest }
   
   package { "openssh": 
@@ -45,6 +48,6 @@ class ssh {
     owner   => "root",
     group   => "root",
     require => Package["openssh-server"],
-    source  => "puppet:///modules/ssh/sshd_config/restrictive",
+    source  => "puppet:///modules/ssh/sshd_config/${access_leve}",
   }
 }
