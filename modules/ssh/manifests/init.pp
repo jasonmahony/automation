@@ -2,11 +2,12 @@ class ssh {
   
   $access_level = "permissive"
   
-  package { "openssh-clients": ensure => latest }
+  package { "openssh-clients": ensure => latest, allow_virtual => false }
   
   package { "openssh": 
     ensure  => latest, 
-    notify  => Service['sshd'] 
+    notify  => Service['sshd'],
+    allow_virtual => false 
   }  
   
   file { "/etc/ssh/ssh_config":
@@ -20,7 +21,8 @@ class ssh {
   package { "openssh-server":
     ensure  => latest, 
     require => Package[ "openssh-clients" ],
-    notify  => Service[ "sshd" ]
+    notify  => Service[ "sshd" ],
+    allow_virtual => false
   }  
  
   service { "sshd":
@@ -48,6 +50,6 @@ class ssh {
     owner   => "root",
     group   => "root",
     require => Package["openssh-server"],
-    source  => "puppet:///modules/ssh/sshd_config/${access_leve}",
+    source  => "puppet:///modules/ssh/sshd_config/${access_level}",
   }
 }
