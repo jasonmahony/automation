@@ -22,6 +22,7 @@ class users {
     home    => '/home/jason',
     uid     => '777',
     gid     => '777',
+    managehome => true,
     groups  => ['jason']
   }       
 }
