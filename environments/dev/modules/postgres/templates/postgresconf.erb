@@ -45,4 +45,3 @@ log_autovacuum_min_duration = 1000ms    # Logs actions that cause autovacuum to 
 wal_level = <%= @wal_level %>						# minimal, archive, or hot_standby
 wal_buffers = 16MB
 archive_mode = <%= @archive_mode %>	               	# allows archiving to be done
-<%= @archive_command_equals_line %> 				# 'cp %p /db/pgsql/archive/%f'
