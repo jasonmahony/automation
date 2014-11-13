@@ -1,7 +1,8 @@
 class sudoers {
-  file {
-    "/etc/sudoers": 
-      source => "puppet:///modules/sudoers/restrictive", 
+  $access_level = "permissive"
+  
+  file { "/etc/sudoers": 
+      source => "puppet:///modules/sudoers/${access_level}", 
       owner => root,
       group => root,
       mode => 0440

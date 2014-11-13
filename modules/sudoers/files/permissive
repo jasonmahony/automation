@@ -27,6 +27,8 @@ root        ALL=(ALL) ALL
 opsadm      ALL=(ALL) NOPASSWD: ALL
 user1     ALL=(root) NOPASSWD: /sbin/lvm, /sbin/scsi_id, /sbin/dmsetup
 
+# I'm all powerful but accountable
+%jason        ALL=(ALL) NOPASSWD: ALL
 
 # local process account
 user2          ALL=(root) NOPASSWD: /sbin/fuser
