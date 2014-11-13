@@ -5,8 +5,8 @@ class apache::params {
 
    ## config.pp
    $port = "80"
-   $doc_root = "/var/www/example"
-   $server_name = "www.example.com"
+   $doc_root = "/var/www/html"
+   $server_name = "centos.localdomain"
 
    ### service.pp
    $service = "httpd" 
