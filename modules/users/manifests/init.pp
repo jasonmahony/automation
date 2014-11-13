@@ -8,7 +8,6 @@ class users {
 
   User { ensure => present, shell => '/bin/bash' }    
 
-  
   user { 'puppet':
     comment => 'Puppet Service Account',
     home    => '/var/lib/puppet',
@@ -22,7 +21,14 @@ class users {
     home    => '/home/jason',
     uid     => '777',
     gid     => '777',
-    managehome => true,
     groups  => ['jason']
-  }       
+  }
+
+  file { '/home/jason':
+    ensure => directory,
+    uid    => 777,
+    gid    => 777,
+    require => User['jason']
+  }
+  
 }
