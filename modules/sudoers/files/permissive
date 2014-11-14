@@ -7,7 +7,7 @@
 ### alias host-specific entries
 ### !!!
 
-Host_Alias	SERVERTYPE = server01 server02 server03
+#Host_Alias	SERVERTYPE = server01 server02 server03
 
 Defaults  env_reset
 Defaults  timestamp_timeout = 600
@@ -25,13 +25,13 @@ Defaults  env_keep = "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR \
 # local full admin users (root login should be disabled, opsadm and opsproc should be key-based only)
 root        ALL=(ALL) ALL
 opsadm      ALL=(ALL) NOPASSWD: ALL
-user1     ALL=(root) NOPASSWD: /sbin/lvm, /sbin/scsi_id, /sbin/dmsetup
+#user1     ALL=(root) NOPASSWD: /sbin/lvm, /sbin/scsi_id, /sbin/dmsetup
 
 # I'm all powerful but accountable
 jason        ALL=(ALL) NOPASSWD: ALL
 
 # local process account
-user2          ALL=(root) NOPASSWD: /sbin/fuser
+#user2          ALL=(root) NOPASSWD: /sbin/fuser
 
 ### !!!
 ### local groups
@@ -42,11 +42,11 @@ user2          ALL=(root) NOPASSWD: /sbin/fuser
 
 # this local group is for local bounce accounts, which will not have ldap system auth
 
-%svradm        SERVERTYPE=(ALL) NOPASSWD: ALL
+#%svradm        SERVERTYPE=(ALL) NOPASSWD: ALL
 
 ### !!!
 ### ldap groups
 ### !!!
 
 # ldap-based full admin groups
-%ldap-group      ALL=(ALL) ALL
+#%ldap-group      ALL=(ALL) ALL
