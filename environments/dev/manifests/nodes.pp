@@ -3,7 +3,7 @@ node default {
 }
 
 node base {
-  include motd, users, groups, ssh
+  include motd, users, groups, ssh, sudoers
 }
 
 node "dev-front.example.com" inherits base {
