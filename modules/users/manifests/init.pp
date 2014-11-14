@@ -26,8 +26,8 @@ class users {
 
   file { '/home/jason':
     ensure => directory,
-    ownder    => "jason",
-    group    => "jason",
+    owner   => "jason",
+    group   => "jason",
     require => User['jason']
   }
   
