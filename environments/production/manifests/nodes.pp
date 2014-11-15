@@ -3,7 +3,7 @@ node default {
 }
 
 node base {
-  include motd, users, groups, ssh, sudoers
+  include motd, users, groups, ssh, sudoers, ntp
 }
 
 node /^app\d{2}.example.com$/ inherits base {
@@ -15,5 +15,5 @@ node /^pg\{2}.example.com$/ inherits base {
 }
 
 node "centos.localdomain" {
-  include postgres, sudoers, resque
+  include postgres, sudoers, resque, ntp
 }
