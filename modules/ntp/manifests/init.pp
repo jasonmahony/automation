@@ -2,7 +2,7 @@ class ntp {
   
   $source = "puppet:///modules/ntp"
   Package { ensure => latest, allow_virtual => false }
-  File { ensure => present, user => root, group => root, mode => 644, require => Package['ntp'], backup => ".puppetbak" }
+  File { ensure => present, owner => root, group => root, mode => 644, require => Package['ntp'], backup => ".puppetbak" }
   
   package { ntp: }
 
