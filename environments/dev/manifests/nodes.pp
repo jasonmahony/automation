@@ -7,7 +7,7 @@ node base {
 }
 
 node "dev-front.example.com" inherits base {
-  include apache, devtools
+  include apache
 }
 
 node "dev-back.example.com" inherits base {
