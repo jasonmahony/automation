@@ -17,7 +17,7 @@ class ntp {
     owner  => 'root',
     group  => 'root',
     mode   => '644',
-    source    => $source/ntp.conf,
+    source    => "$source/ntp.conf",
     require    => Package['ntp'],
   }  
   
@@ -25,7 +25,7 @@ class ntp {
     owner  => 'root',
     group  => 'root',
     mode   => '644',
-    source    => $source/step-tickers,
+    source    => "$source/step-tickers",
     require    => Package['ntp'],
   }
   
