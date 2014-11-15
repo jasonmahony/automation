@@ -1,8 +1,13 @@
 class ntp {
   
   $source = "puppet:///modules/ntp"
+  Package = { ensure => latest, allow_virtual => false, }
+  File = { ensure => present, user => root, group => root, mode => 644, require => Package['ntp'], backup => ".puppetbak" }
   
-  package { ntp: ensure => latest }
+  package { ntp: }
+
+  file { '/etc/ntp.conf': source => "$source/ntp.conf" }  
+  file { '/etc/ntp/step-tickers': content => template("ntp/steptickers") }
   
   service { ntpd:
     ensure     => 'running',
@@ -11,22 +16,6 @@ class ntp {
     hasrestart => 'true',
     require    => Package['ntp'],
     subscribe  => File['/etc/ntp.conf'], 
-  }
-  
-  file { '/etc/ntp.conf':
-    owner  => 'root',
-    group  => 'root',
-    mode   => '644',
-    source    => "$source/ntp.conf",
-    require    => Package['ntp'],
-  }  
-  
-  file { '/etc/ntp/step-tickers':
-    owner  => 'root',
-    group  => 'root',
-    mode   => '644',
-    content    => template("ntp/steptickers"),
-    require    => Package['ntp'],
   }
   
 }
