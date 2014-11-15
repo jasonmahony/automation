@@ -25,7 +25,7 @@ class ntp {
     owner  => 'root',
     group  => 'root',
     mode   => '644',
-    source    => "$source/step-tickers",
+    content    => template("ntp/steptickers"),
     require    => Package['ntp'],
   }
   
