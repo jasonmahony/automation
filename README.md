@@ -1,5 +1,5 @@
 ==========
-Puppet Infrastructure using Directory Environments
+Puppet with Directory Environments
 ==========
 Sample Puppet v3.7 layout using directory environments and a variety of modules. Infrastucture designed to run on a Puppetmaster server.
 
